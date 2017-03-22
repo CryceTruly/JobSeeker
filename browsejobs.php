@@ -66,7 +66,7 @@
 	<div class="col-sm-2">
 	                 <?php
 	                  if($r->name=="FullTime"){         ?>
-	                   <h3><span class="label label-warning">
+	                   <h3><span class="label label-primary">
 	                 
 	                 <?php echo $r->name;?>
 
@@ -85,7 +85,7 @@
 					<?php
 
 
-	                  }else if($r->name=="Freelance"){ ?>
+	                  }else if($r->name=="warning"){ ?>
 
 	                  <h3><span class="label label-primary">
 	                 

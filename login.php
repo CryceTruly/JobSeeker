@@ -4,21 +4,21 @@
 
 
 ?>
-<section>
-	
+
+
+
+
+
+<section class="container"><p class="panel text-primary"><?php   if(isset($_GET['res'])){
+	echo "Your account has been successfully created you can now login";
+	} ?></p>
+		
                       <?php
                       include 'includes/indexloginform.php';
 ?>
 
 
-
-
-                    
-
-
-             
-
-
+	
 
 </section>
 

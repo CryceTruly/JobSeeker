@@ -1,13 +1,10 @@
 <?php
-require 'core/init.php';
-		include 'includes/header.php';
-
           if(isset($_GET['id'])){
+		include 'includes/header.php';
+error_reporting(0);
           	$id=$_GET['id'];
           	$SESSION['id']=$id;
-	
-             }
-             $sql="SELECT title,description,city,state,created,contact_email FROM jobs WHERE id = ".$id;
+	 $sql="SELECT title,description,city,state,created,contact_email FROM jobs WHERE id = ".$id;
 
 		$query=$handler->query($sql);
 
@@ -20,15 +17,15 @@ require 'core/init.php';
 <div class="container">
 
 <div class="row">
-	<div class="col-md-3">
+	<div class="col-md-2">
 		
 
 
 	</div>
 
 
-	<div class="col-md-6">
-	<h3><?php echo $r->title;?>,(<?php echo $r->city," ",$r->state;?>)</h3><span class="label label-success"><?php echo format_date($r->created);?></span></h3>
+	<div class="col-md-8">
+	<h3><?php echo $r->title;?>,(<?php echo $r->city," ",$r->state;?>)</h3><h4><span class="text-mute"><?php echo "Posted on  ",format_date($r->created);?></span></h4>
 
 	<p><?php echo $r->description;?></p>
 
@@ -68,7 +65,7 @@ require 'core/init.php';
 
 	</div>
 
-	<div class="col-md-3">
+	<div class="col-md-2">
 		
 
 
@@ -89,13 +86,6 @@ require 'core/init.php';
 
 
 </section>
-
-
-
-
-
-
-
 	<?php
 	}}
 	?>
@@ -109,5 +99,9 @@ require 'core/init.php';
 	  </body>
 	</html>
 
+           <?php  }else{
+                         echo "the page you are looking for could not be found";
+             }?>
+            
 	
 

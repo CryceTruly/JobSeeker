@@ -1,12 +1,7 @@
 $(document).ready(function(){
-$('#category a').click(function (e){
+$('#category a').hover(function (e){
+	alert('hello');
 	e.preventDefault();
-
-	let action=$this.attr('href');
-	alert action;
-
-	$.get('catjobs.php',{})
-
 
 });
 

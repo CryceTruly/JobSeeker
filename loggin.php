@@ -5,33 +5,18 @@ if(isset ($_POST['password']) && isset($_POST['username'])){
 $username=trim($_POST['username']);
 
 if(!empty($_POST['password']) && !empty($username)){
-	echo $hashed=md5($_POST['password']),'<br>';
+	$hashed=md5($_POST['password']);
 	
 	
-$sql=$handler->query("SELECT username,password from users");
-
-
-while($results=$sql->fetch(PDO::FETCH_OBJ)){
-	echo '<pre>',print_r($results),'</pre>';
-	$db_pass=$results->password;
-    $db_user=$results->username;
-
-    
-if(($db_pass==$hashed)&&($username==$db_user)){
-
+$sql=$handler->query("SELECT username,password from users WHERE username='$username' AND password='$hashed' LIMIT 1");
+if($sql->rowCount()==1){
 $_SESSION['username'] = $username;
 header("Location:postjob.php");
 }else{
-	echo "incorect password try again with the right password";
+	header("Location:login.php? msg=".urlencode('incorect username and password combination try again with the right password'));
 }
-
-}
-
-
-
-
 }else{
-	echo "all the values are required fill all field";
+	header("Location:login.php?msg =".urlencode('all the values are required fill all field')); 
 }
 
 }else{

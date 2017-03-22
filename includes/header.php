@@ -1,4 +1,5 @@
 <?php
+
 require_once('core/init.php');
 
 ?>
@@ -12,6 +13,8 @@ require_once('core/init.php');
     <title>Job Finder  |Everywhere we work</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    
+      
     <!-- Custom styles for this template -->
     <link href="css/font-awesome.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">

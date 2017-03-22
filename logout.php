@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require 'core/init.php';
 
 if (isset ($_SESSION['username'])){

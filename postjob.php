@@ -1,5 +1,9 @@
 <?php
 require 'includes/header.php';
+$sql="SELECT id,name FROM categories";
+$sql2="SELECT type.name FROM type";
+$query=$handler->query($sql);
+$query2=$handler->query($sql2);
 
 ?>
 
@@ -21,72 +25,90 @@ require 'includes/header.php';
                           <?php
                            
 
-                          }else{
-                           $username=$_SESSION['username'];
-                         ?>
-                                 
-
-	                
-                      <div class="container form">
-                       <h3>Add Job</h3>
-
-                       <form role="form" action="add.php">
-                        <div class="form-group">
-                        <label for="title">Title</label>
-                       <input type="text" name="title" id="title" class="form-control">
-                        </div>
-                        <div class="form-group">
-                        <label for="employer">Employer Name</label>
-
-                        <input type="text" name="employer" id="employer" class="form-control" >
-                        </div>
-
-                          <div class="form-group" class="form-control" name="type">
-                        <label for="type">Job Type</label>
-
-                        <select class="form-control" >
-                        <option value="default">Choose Category</option>
-			              	<option value="IT">IT</option>
-			            	<option value="Finance">Finance</option>
-                            <option value="Education">Education</option>					
-
-                        </select>
-
-
-                        </div>
-
-
-
-                        <div class="form-group">
-                        <label for="Description">Description</label>
-
-                        <textarea class="form-control" id="Description" type="text" name="textarea"></textarea>
-
+                            }else{
+                             $username=$_SESSION['username'];
+                           ?>
+                          
+                    
+                       <div class="container well well-sm">
+                         <h3>Add Job</h3>
+                                            <?php  if(isset($_GET['msg'])){?>
                         
-                        </div>
+                                        <p class="alert alert-success alert-sm">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+             <?php echo $_GET['msg'];?> </a><?php }?>
+          </p>
 
+                         <form id="addjob" method="POST" action="add.php">
+                          <div class="form-group">
+                          <label for="title">Title</label>
+                         <input type="text" required name="title" id="title" class="form-control">
+                          </div>
+                          <label for="category">
+                            Please select category
+                          </label>
+                          <select required name ="category" id="category"class="form-control" >
+                 <?php while($r=$query->fetch(PDO::FETCH_OBJ)){  ?>
+                    <option value="<?php  echo $r->name;?>"><?php  echo $r->name;}?></option>
+                          </select>
+                          <div class="form-group">
+                          <label for="employer">Employer Name</label>
+
+                          <input type="text" required name="employer" id="employer" class="form-control" >
+                          </div>
+                             
+                            <div class="form-group" class="form-control" name="type">
+                          <label for="type">Job Type</label>
+
+                          <select required class="form-control" name="type">
+                          
+                        <?php while($r2=$query2->fetch(PDO::FETCH_OBJ)){  ?>
+           <option value="<?php  echo $r2->name;?>"><?php  echo $r2->name;}?></option>
+                      
+                    
+                                        
+
+                          </select>
+
+
+                          </div>
                          <div class="form-group">
-                        <label for="city">City</label>
+                          <label for="city">City</label>
 
-                        <input type="text" name="city" id="city" class="form-control" >
-                        </div>
+                          <input type="text" required name="city" id="city" class="form-control" >
+                          </div>
 
-                         <div class="form-group">
-                        <label for="email">Contact Email</label>
+                           <div class="form-group">
+                          <label for="email">Contact Email</label>
 
-                        <input type="email" name="email" id="email" class="form-control" >
-                        </div>
-                        
+                          <input type="email" required name="email" id="email" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                          <label for="Description">Add job description</label>
+
+                          <textarea  name="description" required class="form-control" id="Description" type="text" name="textarea"></textarea>
+
+                          
+                          </div>
 
 
-                          <input type="submit" name="submit" value="Add Job" class="btn btn-primary">
+                            <input type="submit" name="submit" value="Add Job" class="btn btn-primary">
 
-                       </form>
-                       </div>
-                       <?php
-                           }
-                                ?>
+                         </form>
+
+
                        
+
+
+
+
+
+
+                      </div>
+                         <?php
+                          } 
+
+                       ?>
 
 </section>
 

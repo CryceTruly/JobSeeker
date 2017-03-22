@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5 {
 
 body {
   font-family: "Segoe UI", "Segoe WP", "Segoe Regular", sans-serif;
-  font-size: 19px;
+  font-size: 13px;
   line-height: 1.2em;
 }
 
@@ -60,7 +60,7 @@ display: inline-block;
 padding:5px;
 padding-right: 20px;
 
-font-size: 20px;
+font-size: 14px;
 }
 
 .navbar {
@@ -73,7 +73,7 @@ font-size: 20px;
 
 .navbar a {
   color: #fff !important;
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: -0.5px;
 text-align:center;
 }
@@ -109,10 +109,13 @@ text-align:center;
   list-style: none;
 }
 .search_section{
-	height: 400px;
+	
   background: url("../img/1.png");
   color:#ffffff;
  
+}
+.fom{
+  height: 140px;
 }
 
 .fom{
@@ -238,4 +241,11 @@ color:#fff;}
 
 #sjob{
   color:black;
+}
+.fom{
+  
+}
+
+.searchForm[input type='text']{
+  display: inline-block;
 }
