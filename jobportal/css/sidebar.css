@@ -1,0 +1,49 @@
+/* Sidebar */
+#sidebar-wrapper {
+    z-index: 1;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    overflow-y: hidden;
+    opacity: 0.9;
+}
+a{
+            text-decoration: none;
+            display: inline-block;
+            list-style: none;
+        }
+/*  entire screen */
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+
+}
+
+
+/* Change with of sidebar from 0 to 250px */
+#wrapper.menuDisplayed #sidebar-wrapper {
+    width: 250px;
+}
+
+/* Since we added left padding, we need to shrink the width by 250px */
+#wrapper.menuDisplayed #page-content-wrapper {
+    padding-left: 250px;
+}
+
+
+/* Sidebar styling - the entire ul list */
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    
+}
+
+.sidebar-nav li a:hover {
+    
+}
